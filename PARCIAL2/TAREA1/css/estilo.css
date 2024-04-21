@@ -1,0 +1,35 @@
+body{
+    background-color: rgb(212, 212, 212);
+    text-align: center;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 24px;
+    font-family: 'Montserrat Alternates', serif;
+}
+
+h1{
+    font-family: 'Satisfy', serif;
+    text-align: center;
+    font-size: 58px;
+}
+
+h2{
+    font-family: 'Concert One', serif;
+    text-align: center;
+    font-size: 48px;
+}
+
+ul, li{
+    text-align: left;
+}
+
+img{
+    height: 500px;
+    width: 500px;
+}
+
+.mapa{
+    height: 600px;
+    width: 800px;
+}

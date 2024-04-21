@@ -1,0 +1,91 @@
+@import url(https://fonts.googleapis.com/css?family=Madimi One);
+@import url(https://fonts.googleapis.com/css?family=Bebas Neue);
+@import url(https://fonts.googleapis.com/css?family=Rowdies);
+body {
+  padding: 0 50px;
+  background-color: hwb(30 61% 15%);
+  font-family: 'Madimi One', cursive;
+  text-align: justify;
+  font-size: 1.5rem;
+}
+
+h1 {
+  margin: 0;
+  color:hwb(28 5% 37%);
+  font-family: 'Rowdies', cursive;
+  font-size: 5rem;
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+  color:hwb(28 25% 9%);
+  font-family: 'Bebas Neue', cursive;
+  font-size: 4rem;
+  text-transform: capitalize;
+  text-shadow: 3px 3px black;
+}
+
+strong {
+  padding: 0 10px;
+  background-color: rgb(225, 171, 110);
+  color: rgb(107, 90, 52);
+}
+
+i {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+time {
+  color: rgb(63, 44, 0);
+}
+
+img {
+  border: hwb(30 4% 51%) 5px solid;
+  padding: 5px;
+}
+
+img.izquierda {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+img.derecha {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+p.izquierda {
+  float: left;
+  width: 33%;
+}
+
+p.centrado {
+  text-align: center;
+}
+
+hr {
+  clear: both;
+  width: 66%;
+  height: 10px;
+  border: black 3px solid;
+  border-radius: 5px;
+  margin: 80px auto;
+  background-color: hwb(31 24% 32%);
+}
+
+address {
+  text-align: right;
+  font-style: normal;
+}
+
+/*
+los hr sirven como headers, son como rayas que separan contenidos}
+el float sirve para colocar una imagene en un lugar de la pagina para que de esta manera el texto quede alrededor de ella
+el rem sirve para darle tamaño a las fuentes por puntos
+el clear both sirve para eliminar margenes y darle una medida manual
+*/

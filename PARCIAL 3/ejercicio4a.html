@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>Bienvenida del usuario</title>
+
+  <style>
+    p{
+        color: chocolate;
+    }
+  </style>
+  
+  <script type = "text/javascript"> /* esta es la manera de insercion de manera embebida a un script de JS */
+
+  function alertName() {
+
+    var grados= parseInt(document.forms[0].grados.value);
+    var f1;
+    var k1;
+    var opc=(document.forms[0].opciones.value);
+
+    if(opc=="f"){
+        f1=(grados*1.8)+32;
+        document.write("Los grados Farenheit convertidos son: ",f1);
+    }else{
+        k1=(grados+273.15);
+        document.write("Los grados Kelvin convertidos son: ",k1);
+    }
+
+    return true;
+
+  }
+
+  </script>
+</head>
+
+<body>
+
+<form id="myform" onsubmit="return alertName();"> 
+<p>Ingresa los grados a convertir <input id="grados" name="grados" type="text" /></p> 
+<p>En que tipo los quieres convertir
+<select id="opciones" name="opciones">
+    <option value="f">Farenheit</option>
+    <option value="k">Kelvin</option>
+</select>
+</p>
+
+<p><input type="submit" /></p>
+
+</form>
+</body>
+</html>

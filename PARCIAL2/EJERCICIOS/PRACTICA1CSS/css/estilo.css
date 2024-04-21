@@ -1,0 +1,36 @@
+@import url(https://fonts.googleapis.com/css?family=Cabin+Sketch);
+@import url(https://fonts.googleapis.com/css?family=Madimi One);
+h1{
+    color: rgb(5, 5, 5);
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 100px;
+    padding-top: 20px;
+}
+h2{
+    color: rgb(74, 74, 83);
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 60px;
+}
+
+img{
+    padding: 30px;
+    width: 350px;
+    height: 250px;
+}
+body{
+    background-color: hwb(210 85% 12%);
+    text-align: center;
+}
+
+div.estrofa{
+    padding-top: 20px;
+    font-family: 'Madimi One', cursive;
+    color: hwb(218 0% 38%);
+    font-size: 34px;
+}
+
+div.estribillo{
+    font-family: 'Madimi One', cursive;
+    color: hwb(218 4% 13%);
+    font-size: 34px;
+}

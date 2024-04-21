@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>Bienvenida del usuario</title>
+
+  <style>
+    p{
+        color: chocolate;
+    }
+  </style>
+  
+  <script type = "text/javascript"> /* esta es la manera de insercion de manera embebida a un script de JS */
+
+  function alertName() {
+
+    var vecesfl1= parseInt(document.forms[0].vecesfl.value);
+    var vecescl1= parseInt(document.forms[0].vecescl.value);
+    var letra= (document.forms[0].letra.value);
+/* 
+el var sirve para definir variables en JS, el forms sirve para dirigirte al form numero 0 debido a que trabaja como arreglo, tomaremos
+el valor indicado en veces
+la funcion parseInt te sirve para pasar a entero el valor ingresado
+*/
+    document.write("<table border=1>");
+    for(i=1;i<=vecesfl1;i++){
+        document.write("<tr>"); 
+        for(j=1;j<=vecescl1;j++)
+    {
+        document.write("<td>",letra,"</td>"); /* para hacer la impresion de valores agregados deberan ponerse entre comillas y separarlos por comas */
+
+        }
+        document.write("</tr>"); 
+    }
+    document.write("</table>");
+
+    return true;
+
+  }
+
+  </script>
+</head>
+
+<body>
+
+<form id="myform" onsubmit="return alertName();"> <!-- el onsubmit nos permite llamar a una funcion interna de JS, en este caso alertName -->
+<!-- esta funcion sera llamada cuando el boton de submit sea clickeado, regresara cuando haya terminado de ejecutar sus instrucciones -->
+<p>Cuantas filas <input id="vecesfl" name="vecesfl" type="text" /></p> <!-- el id y el name deberan de llamarse de la misma manera, esto es para funcionalidad de css y de JS -->
+<p>Cuantas columnas <input id="vecescl" name="vecescl" type="text" /></p> 
+<p>Ingresa una letra <input id="letra" name="letra" type="text" /></p>
+<!-- al estar ambos campos dentro de un mismo submit, es decir, encimad de el, se tomara que el formulario seguira siendo el numero cero -->
+<p><input type="submit" /></p> <!-- boton de submit -->
+
+</form>
+</body>
+</html>

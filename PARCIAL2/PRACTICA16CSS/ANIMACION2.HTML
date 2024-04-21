@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+.tuerca1 {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-image: url(tuerca1.png);
+    background-size: cover;
+    animation: girar 2s linear infinite;
+}
+
+.bloque {
+    display: inline-block;
+    position: relative;
+    margin: 20px;
+}
+
+.tuerca2 {
+    position: absolute;
+    left: 175px;
+    animation: girar 2s linear infinite reverse;
+}
+
+@keyframes girar {
+    0% {
+      transform: rotate(0deg)
+    }
+    to {
+      transform: rotate(360deg)
+    }
+}
+
+</style>
+</head>
+<body>
+
+<h1>CSS Animation</h1>
+
+<p>The animation-direction property specifies whether an animation should be played forwards, backwards or in alternate cycles. The following example uses the value "alternate-reverse" to make the animation run backwards first, then forwards:</p>
+
+<div class="bloque"> 
+    <div class="tuerca1"></div>
+    <div class="tuerca1 tuerca2"></div>
+</div>
+
+</body>
+</html>

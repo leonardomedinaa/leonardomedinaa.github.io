@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Arreglos Java Script</h1>
+
+    <h2>Ordenación</h2>
+
+    <p>Click en el cualquiera de los botones</p>
+
+<button onclick="generaArreglo()">Llena el arreglo</button>
+<button onclick="imprimeArreglo()">Imprime el arreglo</button>
+<button onclick="ordenaArreglo()">Ordena el arreglo</button>
+<button onclick="ordenaReversa()">Ordena el arreglo en reversa</button>
+<p id="demo"></p>
+<script>
+    var arreglo = [0,0,0,0,0,0];
+    var tam = 100; /* variable que nos permite modificar el tamaño del arreglo al gusto */
+    function generaArreglo() { /* innerHTML se va a insertar en el parrafo que tenga el id = demo */
+        document.getElementById("demo").innerHTML = "Entraste a la funcion 1 que llena el arreglo"; /* esto se imprimira donde este indicado el id, en este caso en la etiqueta p */
+        for( i=0; i<tam; i++){
+            arreglo[i] = Math.floor(Math.random()*100)+1; /* hacemos la generacion de un numero random el cual ira en cada posicion del arreglo */
+            }
+        }
+
+    function imprimeArreglo() {
+        document.getElementById("demo").innerHTML = "Entraste a la funcion 2";
+        document.getElementById("demo").innerHTML = "El arreglo resultante es: "+arreglo; /* hacemos la impresion del arreglo generado con la anterior funcion */
+        }
+
+        function ordenaArreglo() {
+            document.getElementById("demo").innerHTML = "Entraste a la funcion 3";
+            arreglo = arreglo.sort(function(a, b){return a - b}); /* esta funcion nos permite ordenar de manera ascendente los numeros generados, la funcion te permite ordenar n cantidad */
+            document.getElementById("demo").innerHTML = "El arreglo resultante ordenado es: "+arreglo;
+        }
+
+        function ordenaReversa() {
+            document.getElementById("demo").innerHTML = "Entraste a la funcion 4";
+            arreglo = arreglo.sort(function(a, b){return b - a}); /* esta funcion nos permite ordenar de manera descendente los numeros generados */
+            document.getElementById("demo").innerHTML = "El arreglo resultante ordenado en reversa es: "+arreglo;
+        }
+</script>
+</body>
+</html>

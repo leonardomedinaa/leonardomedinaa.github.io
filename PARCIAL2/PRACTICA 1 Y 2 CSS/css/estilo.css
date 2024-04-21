@@ -1,0 +1,21 @@
+h1{
+    color: rgb(65, 60, 57);
+    font-family: Impact;
+}
+h2{
+    color: rgb(115, 115, 124);
+    font-family: 'Courier New';
+}
+p{
+    color: rgb(252, 252, 252);
+    font-family: Verdana;
+    font size: 14px;
+}
+img{
+    width: 150px;
+    height: 150px;
+}
+body{
+    background-image: url(".././media/fondo.jfif");
+    text-align: center;
+}

@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title>Bienvenida del usuario</title>
+
+  <style>
+    p{
+        color: chocolate;
+    }
+  </style>
+  
+  <script type = "text/javascript"> /* esta es la manera de insercion de manera embebida a un script de JS */
+
+  function alertName() {
+
+    usuario='Leo';
+    pass='1234';
+    var usu= (document.forms[0].usu.value);
+    var contra= parseInt(document.forms[0].contra.value);
+
+    if(usu==usuario && pass==contra){
+        document.write("El link al portafolio es: <a href=https://portafolioweb1ljmm.000webhostapp.com/>PORTAFOLIO</a>");
+    }
+    else{
+        document.write("ACCESO DENEGADO <br>");
+        document.write("El link para volver al login es: <a href=ejercicio3b.html>LOGIN</a>");
+    }
+
+    return true;
+
+  }
+
+  </script>
+</head>
+
+<body>
+
+<form id="myform" onsubmit="return alertName();">
+<p>Usuario <input id="usu" name="usu" type="text" /></p> 
+<p>Contraseña<input id="contra" name="contra" type="password" /></p> 
+<p><input type="submit" /></p>
+
+</form>
+</body>
+</html>

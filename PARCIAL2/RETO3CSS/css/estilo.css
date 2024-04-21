@@ -1,0 +1,69 @@
+h1{
+    font-size: 20px;
+    font-family: Impact;
+    text-align: center;
+    font-size: 200%;
+}
+
+body{
+    font-family: "Comic Sans", cursive;
+}
+
+table, tr, th, td{
+    border: 2px solid;
+    text-align: center;
+    border-color: rgb(71, 159, 222);
+    width: 1500px;
+    height: 70px;
+}
+
+.encabezados{
+    background-color: rgb(74, 166, 247);
+}
+.materias{
+    background-color: rgb(124, 176, 222);
+}
+
+.progra1{
+    background-color: rgb(237, 237, 188);
+}
+
+.ingles{
+    background-color: rgb(159, 220, 141);
+}
+
+.fisica{
+    background-color: rgb(234, 178, 164);
+}
+
+.mate1{
+    background-color: rgb(93, 211, 187);
+}
+
+.prograweb1{
+    background-color: rgb(237, 188, 234);
+}
+
+.cng{
+    background-color: rgb(218, 143, 186);
+}
+
+.mate3{
+    background-color: rgb(195, 159, 215);
+}
+
+.labo1{
+    background-color: rgb(75, 100, 225);
+}
+
+.hora1{
+    background-color: rgb(187, 86, 221);
+}
+
+.labo2{
+    background-color: rgb(74, 157, 178);
+}
+
+.hora2{
+    background-color: rgb(182, 116, 229);
+}

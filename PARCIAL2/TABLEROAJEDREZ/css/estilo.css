@@ -1,0 +1,30 @@
+h1{
+  text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(168, 158, 158);
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 50px auto;
+    border: black solid 6px;
+  }
+
+  td {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+  }
+
+  .blanco {
+    background-color: #ffffff;
+  }
+
+  .negro {
+    background-color: #000000;
+  }

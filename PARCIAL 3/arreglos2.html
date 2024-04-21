@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Arreglos Java Script</h1>
+
+    <h2>Ordenación</h2>
+
+    <p>Click en el cualquiera de los botones</p>
+
+<button onclick="generaArreglo()">Llena el arreglo</button>
+<button onclick="imprimeArreglo()">Imprime el arreglo</button>
+<button onclick="ordenaArreglo()">Ordena el arreglo</button>
+<button onclick="ordenaReversa()">Ordena el arreglo en reversa</button>
+<button onclick="tablaArreglo()">Impresion del arreglo en tabla</button>
+<hr>
+<button onclick="agregaArreglo()">Agregar valor al arreglo</button>
+<button onclick="eliminaArreglo()">Eliminar el ultimo valor del arreglo</button>
+<p id="demo"></p>
+<script>
+    var tam = 10; /* variable que nos permite modificar el tamaño del arreglo al gusto */
+    var arreglo = [];
+    var n = arreglo.length;
+    arreglo.length = 10;
+
+    function generaArreglo() { /* innerHTML se va a insertar en el parrafo que tenga el id = demo */
+        document.getElementById("demo").innerHTML = "Entraste a la funcion 1 que llena el arreglo"; /* esto se imprimira donde este indicado el id, en este caso en la etiqueta p */
+        for( i=0; i<n; i++){
+            arreglo[i] = Math.floor(Math.random()*100)+1; /* hacemos la generacion de un numero random el cual ira en cada posicion del arreglo */
+            }
+        }
+
+    function imprimeArreglo() {
+        document.getElementById("demo").innerHTML = "Entraste a la funcion 2";
+        document.getElementById("demo").innerHTML = "El arreglo resultante es: "+arreglo; /* hacemos la impresion del arreglo generado con la anterior funcion */
+        }
+
+        function ordenaArreglo() {
+            document.getElementById("demo").innerHTML = "Entraste a la funcion 3";
+            arreglo = arreglo.sort(function(a, b){return a - b}); /* esta funcion nos permite ordenar de manera ascendente los numeros generados, la funcion te permite ordenar n cantidad */
+            document.getElementById("demo").innerHTML = "El arreglo resultante ordenado es: "+arreglo;
+        }
+
+        function ordenaReversa() {
+            document.getElementById("demo").innerHTML = "Entraste a la funcion 4";
+            arreglo = arreglo.sort(function(a, b){return b - a}); /* esta funcion nos permite ordenar de manera descendente los numeros generados */
+            document.getElementById("demo").innerHTML = "El arreglo resultante ordenado en reversa es: "+arreglo;
+        }
+
+        function tablaArreglo(){
+            document.getElementById("demo").innerHTML = "Entraste a la funcion 5";
+            var tabla = "<table border=1>";
+            tabla+= "<tr>";
+            for(i = 0; i<n; i++){
+                tabla+= "<th border=1>"+arreglo[i]+"</th>";
+            }
+            tabla+= "</tr>";
+            tabla+= "</table>";
+            document.getElementById("demo").innerHTML = tabla;
+        }
+
+        function agregaArreglo(){
+            document.getElementById("demo").innerHTML = "Entraste a la funcion 6";
+            arreglo.push(Math.floor(Math.random()*100)+1); /* esta funcion nos permite agregar un elemento al final del arreglo */
+            document.getElementById("demo").innerHTML = "El arreglo resultante es: "+arreglo;
+        }
+
+        function eliminaArreglo(){
+            document.getElementById("demo").innerHTML = "Entraste a la funcion 7";
+            arreglo.pop(); /* esta funcion nos permite elimianr el ultimo elemento del arreglo */
+            document.getElementById("demo").innerHTML = "El arreglo resultante es: "+arreglo;
+        }
+
+
+</script>
+</body>
+</html>
