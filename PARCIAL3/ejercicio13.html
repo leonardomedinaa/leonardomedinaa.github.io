@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let width = prompt("Volumen de la caja, ingresa el ancho", 0); /* nos abre una ventana la cual solicita datos, sin embargo, no nos permite verificiar si ingresarmos correcto */
+            let height = prompt("Volumen de la caja, ingresa la altura", 0);
+            let length = prompt("Volumen de la caja, ingresa la longitud", 0);
+            let volume = width * height * length;
+            alert(`El volumen de la caja es ${volume}`);
+            document.write("Los datos que introduciste son: ");
+            document.write("<br>Width: "+width);
+            document.write("<br>Height: "+height);
+            document.write("<br>Length: "+length);
+            document.write("<br>El resultado del volumen es: "+volume);
+        </script>
+    </body>
+</html>
