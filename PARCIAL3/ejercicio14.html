@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- esta funcion es la que nos permite mandar a llamar a la grafica que vamos a utilizar -->
+<body>
+    <div id="myPlot" style="width:100%;max-width:700px"></div>
+    <br>
+    <div id="myPlot2" style="width:100%;max-width:700px"></div>
+    <br>
+    <div id="myPlot3" style="width:100%;max-width:700px"></div>
+<script>
+    const xArray = ["MATE 1", "MATE 3", "FISICA 1", "PROGRA 1", "PROGRA WEB 1", "CNG II", "INGLES IV"]; /* valores a graficar en x en ambas graficas*/
+    const yArray = [10.00, 6.0, 6.5, 9.5, 9.5, 9.0, 9.0];
+    const yArray2 = [9.0, 7.0, 8.0, 7.0, 9.5, 8.5, 9.0]; /* valores a graficar en y en la grafica 2*/
+    
+    yArray3 = [0, 0, 0, 0, 0, 0, 0];
+    for(i=0; i<7; i++){
+        yArray3[i]=Math.floor(Math.random()*10)+1;
+    }
+
+
+    /* se define una estructura de tipo data para con esto lograr visualizar cada grafica */
+    const data = [{
+    x:xArray,
+    y:yArray,
+    type:"bar",
+    orientation:"v",
+    marker: {color:"rgba(0,0,255,0.6)"}
+    }];
+
+    const data2 = [{
+    x:xArray,
+    y:yArray2,
+    type:"bar",
+    orientation:"v",
+    marker: {color:"rgba(0,255,0,0.4)"}
+    }];
+
+    const data3 = [{
+    x:xArray,
+    y:yArray3,
+    type:"bar",
+    orientation:"v",
+    marker: {color:"rgba(255,0,0,0.4)"}
+    }];
+
+    const layout = {title:"CALIFICACIONES DE PRIMER PARCIAL"}; /* este sera el titulo de la grafica 1 */
+    const layout2 = {title:"CALIFICACIONES DE SEGUNDO PARCIAL"}; /* este sera el titulo de la grafica 2 */
+    const layout3 = {title:"CALIFICACIONES CON NUMEROS ALEATORIOS"};
+
+    Plotly.newPlot("myPlot", data, layout); /* estos son los parametros que esta recibiendo la funcion, el llamado de la funcion */ 
+    Plotly.newPlot("myPlot2", data2, layout2);
+    Plotly.newPlot("myPlot3", data3, layout3);
+</script>
+</body>
+</html>
