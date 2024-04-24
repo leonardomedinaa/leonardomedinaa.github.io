@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas> <!-- al llamar a esta funcion se mostrara la grafica -->
+    <script>
+        const xValues = ["MATE 1", "MATE 3", "FISICA 1", "PROGRA 1", "PROGRA WEB 1", "CNG II"];
+        const yValues = [0, 0, 0, 0, 0, 0, 0];
+        const barColors = ["purple", "yellow","green","chocolate","aqua", "pink"]; //puede trabajarse con el color directo o con rgb, rgba, etc.
+
+        for( let i=0; i<6; i++){
+            yValues[i] = Math.floor(Math.random()*10)+1;
+        }
+
+        new Chart("myChart", //en esta funcion si es necesario el uso de un canva 
+        //los valores mas pequeños los mostrara pegados al eje x
+        
+        {
+            type: "bar",
+            data: { //controla los colores y valores dados en los ejes x/y
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors, //control de colores en las barras
+                data: yValues
+                }]
+            },
+            options: { //controla las leyendas de la grafica
+                legend: {display: false},
+                title: {
+                display: true,
+                text: "World Wine Production 2018"
+                }
+            }
+        });
+</script>
+</body>
+</html>
