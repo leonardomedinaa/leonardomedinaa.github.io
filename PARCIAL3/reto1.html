@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+<script>
+
+    function grafica(){
+        event.preventDefault();
+        let inicio=parseInt(document.forms[0].inicio.value);
+        let fin=parseInt(document.forms[0].fin.value);
+        
+        if(inicio>=fin){
+            alert("El valor de inicio debe de ser mayor al del fin");
+            document.forms[0].inicio.value = "";
+            document.forms[0].fin.value = "";
+            return false;
+        }
+
+
+        let exp = "Math.sin(x)";
+    //let exp = "Math.cos(x)";
+    //let exp = "Math.log(x)";
+    //let exp = "Math.pow(x, 2)"; //funcion cuadrada (parabola)
+    // Generate values
+        const inicioValues = []; 
+        const finValues = [];
+
+    for (let x = inicio; x <= fin; x += 0.1) { /* ciclo que nos evalua que tantos dados se brindaran en la grafica */ 
+        inicioValues.push(x);
+        finValues.push(eval(exp)); /* la funcion eval nos sirve para evaluar matematicamente la funcion seno */
+    }
+
+    // Display using Plotly
+    const data = [{x:inicioValues, y:finValues, mode:"lines"}]; /* funcion de data nos genera la estructura con los datos anteriormente brindados */
+    const layout = {title: "y = " + exp}; /* esta funcion nos permite concatenar los valores */
+    Plotly.newPlot("myPlot", data, layout);
+    
+    return true;
+    }
+</script>
+</head>
+<body>
+    <div id="myPlot" style="width:100%;max-width:700px"></div>
+    <form id="myform" onsubmit="return grafica();">
+    <p>En que valor inicia la grafica <input id="inicio" name="inicio" type="text" /></p>
+    <p>En que valor termina la grafica <input id="fin" name="fin" type="text" /></p>
+    <p><input type="submit" /></p>
+    </form>
+</body>
+</body>
+</html>

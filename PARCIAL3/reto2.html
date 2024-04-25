@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+<script>
+
+    function graficas(){
+        let inicio=parseInt(document.forms[0].inicio.value);
+        let fin=parseInt(document.forms[0].fin.value);
+        let grafica= parseInt(document.forms[0].grafica.value);
+        
+
+        if(inicio>=fin){
+            alert("El valor de inicio debe de ser mayor al del fin");
+            document.forms[0].inicio.value = "";
+            document.forms[0].fin.value = "";
+            return false;
+        }
+
+
+        if(grafica==1){
+            let exp = "Math.sin(x)";
+            const inicioValues = []; 
+        const finValues = [];
+
+    for (let x = inicio; x <= fin; x += 0.1) { /* ciclo que nos evalua que tantos dados se brindaran en la grafica */ 
+        inicioValues.push(x);
+        finValues.push(eval(exp)); /* la funcion eval nos sirve para evaluar matematicamente la funcion seno */
+    }
+
+    // Display using Plotly
+    const data = [{x:inicioValues, y:finValues, mode:"lines"}]; /* funcion de data nos genera la estructura con los datos anteriormente brindados */
+    const layout = {title: "y = " + exp}; /* esta funcion nos permite concatenar los valores */
+    Plotly.newPlot("myPlot", data, layout);
+        }
+
+        if(grafica==2){
+            let exp = "Math.cos(x)";
+            const inicioValues = []; 
+        const finValues = [];
+
+    for (let x = inicio; x <= fin; x += 0.1) { /* ciclo que nos evalua que tantos dados se brindaran en la grafica */ 
+        inicioValues.push(x);
+        finValues.push(eval(exp)); /* la funcion eval nos sirve para evaluar matematicamente la funcion seno */
+    }
+
+    // Display using Plotly
+    const data = [{x:inicioValues, y:finValues, mode:"lines"}]; /* funcion de data nos genera la estructura con los datos anteriormente brindados */
+    const layout = {title: "y = " + exp}; /* esta funcion nos permite concatenar los valores */
+    Plotly.newPlot("myPlot", data, layout);
+        }
+
+        if(grafica==3){
+            let exp = "Math.tan(x)";
+            const inicioValues = []; 
+        const finValues = [];
+
+    for (let x = inicio; x <= fin; x += 0.1) { /* ciclo que nos evalua que tantos dados se brindaran en la grafica */ 
+        inicioValues.push(x);
+        finValues.push(eval(exp)); /* la funcion eval nos sirve para evaluar matematicamente la funcion seno */
+    }
+
+    // Display using Plotly
+    const data = [{x:inicioValues, y:finValues, mode:"lines"}]; /* funcion de data nos genera la estructura con los datos anteriormente brindados */
+    const layout = {title: "y = " + exp}; /* esta funcion nos permite concatenar los valores */
+    Plotly.newPlot("myPlot", data, layout);
+        }
+
+        if(grafica==4){
+            let exp = "1 / Math.tan(x)";
+            const inicioValues = []; 
+        const finValues = [];
+
+    for (let x = inicio; x <= fin; x += 0.1) { /* ciclo que nos evalua que tantos dados se brindaran en la grafica */ 
+        inicioValues.push(x);
+        finValues.push(eval(exp)); /* la funcion eval nos sirve para evaluar matematicamente la funcion seno */
+    }
+
+    // Display using Plotly
+    const data = [{x:inicioValues, y:finValues, mode:"lines"}]; /* funcion de data nos genera la estructura con los datos anteriormente brindados */
+    const layout = {title: "y = " + exp}; /* esta funcion nos permite concatenar los valores */
+    Plotly.newPlot("myPlot", data, layout);
+        }
+
+
+
+
+        
+    //let exp = "Math.cos(x)";
+    //let exp = "Math.log(x)";
+    //let exp = "Math.pow(x, 2)"; //funcion cuadrada (parabola)
+    // Generate values
+        
+    
+    return false;
+    }
+</script>
+</head>
+<body>
+    <div id="myPlot" style="width:100%;max-width:700px"></div>
+    <form id="myform" onsubmit="return graficas();">
+    <p>En que valor inicia la grafica <input id="inicio" name="inicio" type="text" /></p>
+    <p>En que valor termina la grafica <input id="fin" name="fin" type="text" /></p>
+    <select id="grafica" name="grafica">
+        <option value="1">Funcion Seno</option>
+        <option value="2">Funcion Cos</option>
+        <option value="3">Funcion Tan</option>
+        <option value="4">Funcion CoTan</option>
+    </select>
+
+    <p><input type="submit" /></p>
+    </form>
+</body>
+</body>
+</html>
