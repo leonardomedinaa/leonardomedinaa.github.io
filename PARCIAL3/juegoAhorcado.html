@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado Parte III</title>
+</head>
+<body>
+    <form id="myform" onsubmit="return main();"> <!-- onsubmit es el evento cuando se oprime el boton submit -->
+        <p>Ingresa la palabra: <input id="palabra" name="palabra" type="text"/></p> <!-- ID y name deben llamarse de la misma manera -->
+        <p><input type="submit" value="Verificar"/></p>
+    </form>
+    <form id="myform2" onsubmit="return reiniciar();">
+        <p><input type="submit" value="Reiniciar"></p>
+    </form>
+
+    <canvas id="lienzo" width="600" height="800" style="border:1px solid #000000;"> </canvas>
+
+    <script>
+        var palabras = []; // Array para almacenar las palabras ingresadas
+        var c = document.getElementById("lienzo");
+        var ctx = c.getContext("2d");
+        let intentos = 0;
+
+        function dibujarLineas(xInicio, yInicio, xFinal, yFinal){
+            ctx.beginPath();
+            ctx.moveTo(xInicio, yInicio);
+            ctx.lineTo(xFinal, yFinal);
+            ctx.stroke(); 
+        }   
+
+        function dibujarCabeza(xInicio, yInicio, radio){
+            ctx.beginPath();
+            ctx.arc(xInicio, yInicio, radio , 0, 2 * Math.PI);
+            ctx.stroke();
+        }
+
+        // Palabra correcta a adivinar
+        const palabraCorrecta = "alfredo";
+
+        // Función para validar si la palabra ingresada es correcta
+        function validarPalabra(palabra){
+            return palabra === palabraCorrecta;
+        }
+
+        function main(){
+            // Obtener la palabra ingresada por el usuario
+            let palabraIngresada = document.forms[0].palabra.value.toLowerCase(); // Convertir a minúsculas para comparar
+            
+            // Almacenar la palabra ingresada en el array
+            palabras.push(palabraIngresada);
+
+            // Limpiar el campo de entrada
+            document.forms[0].palabra.value = '';
+
+            // Validar la palabra ingresada por el usuario
+            if (validarPalabra(palabraIngresada)){
+                alert("¡Correcto! La palabra ingresada es la correcta.");
+            } else {
+                intentos++;
+                if (intentos >= 6) {
+                    dibujarLineas(300,400, 440, 500);
+                    alert("¡Se acabaron los intentos! La palabra correcta era: " + palabraCorrecta);
+                } else {
+                    if (intentos === 1) {
+                        dibujarCabeza(300, 80, 60);
+                        alert("Incorrecto. La palabra ingresada no es correcta. Intento número: " + intentos);
+                        alert("Pista: Es una persona con traumas");
+                    }
+                    if (intentos==2){
+                        dibujarLineas(300,140, 300, 400);
+                        alert("Incorrecto. La palabra ingresada no es correcta. Intento número: " + intentos);
+                        alert("Pista: La persona es mamadora");
+                    }
+                    if (intentos==3){
+                        dibujarLineas(300,200, 160, 140);
+                        alert("Incorrecto. La palabra ingresada no es correcta. Intento número: " + intentos);
+                        alert("Pista: Es moreno");
+                    }
+                    if(intentos==4){
+                        dibujarLineas(300,200, 440, 140);
+                        alert("Incorrecto. La palabra ingresada no es correcta. Intento número: " + intentos);
+                        alert("Pista: Es amiguibi de Leonardo");
+                    }
+                    if(intentos==5){
+                        dibujarLineas(300,400, 160, 500);
+                        alert("Incorrecto. La palabra ingresada no es correcta. Intento número: " + intentos);
+                        alert("Pista: Parece chiapaneco");
+                    }
+                }
+            }
+
+            return false; // Evita que el formulario se envíe y la página se recargue
+        }
+
+        function reiniciar(){
+            let ctx = c.getContext("2d");
+            ctx.fillStyle= "white";
+            ctx.fillRect(0,0,600,800);
+        }
+    </script>
+</body>
+</html>
