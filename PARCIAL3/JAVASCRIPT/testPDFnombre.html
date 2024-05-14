@@ -1,0 +1,262 @@
+<html>
+<head>
+    <title>Bienvenida del usuario</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+	<script type="text/javascript" src="jspdf.js"></script>
+
+	<script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+
+	<script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
+
+    <script type = "text/javascript">
+        var texto= "";
+        var total= 0;
+		var name;
+
+		function obtname(){
+			name= document.forms[0].name.value;
+			return false;
+		}
+
+	    function resultados() {
+	   	
+		/*/INDICE DE VIOLENCIA FEMINICIDA
+		0-12 FASE DE APERTURA
+		13-24 FASE DE DOMINIO
+		25-36 FASE DE DEMOSTRACION
+		37-48 FASE DE RECONOCIMIENTO
+		49-60 FASE DE RIESGO INMINENTE
+		61    CONSUMACION
+		*/
+		var p1=parseInt(document.forms[1].p1.value);
+		var p2=parseInt(document.forms[1].p2.value);
+		var p3=parseInt(document.forms[1].p3.value);
+		var p4=parseInt(document.forms[1].p4.value);
+		var p5=parseInt(document.forms[1].p5.value);
+		var p6=parseInt(document.forms[1].p6.value);
+		var p7=parseInt(document.forms[1].p7.value);
+		var p8=parseInt(document.forms[1].p8.value);
+		var p9=parseInt(document.forms[1].p9.value);
+		var p10=parseInt(document.forms[1].p10.value);
+		var p11=parseInt(document.forms[1].p11.value);
+		var p12=parseInt(document.forms[1].p12.value);
+		var p13=parseInt(document.forms[1].p13.value);
+		var p14=parseInt(document.forms[1].p14.value);
+		var p15=parseInt(document.forms[1].p15.value);
+		var p16=parseInt(document.forms[1].p16.value);
+		var p17=parseInt(document.forms[1].p17.value);
+		var p18=parseInt(document.forms[1].p18.value);
+		var p19=parseInt(document.forms[1].p19.value);
+		var p20=parseInt(document.forms[1].p20.value);
+		var p21=parseInt(document.forms[1].p21.value);
+		total=p1+p2+p3+p4+p5+p6+p7+p8+p9+p10+p11+p12+p13+p14+p15+p16+p17+p18+p19+p20+p21;
+
+		if((total>=0)&&(total<=12)){
+			alert("Total de puntos es: "+total+" y estas en fase de apertura");
+            texto= "Apertura";
+		}
+		if((total>=13)&&(total<=24)){
+			alert("Total de puntos es: "+total+" y estas en fase de dominio");
+            texto= "Dominio";
+		}
+		if((total>=25)&&(total<=36)){
+			alert("Total de puntos es: "+total+" y estas en fase de demostración");
+            texto= "Demostración";
+        }
+		if((total>=37)&&(total<=48)){
+			alert("Total de puntos es: "+total+" y estas en fase de reconocimiento");
+            texto= "Reconocimiento";
+        }
+		if((total>=49)&&(total<=60)){
+			alert("Total de puntos es: "+total+" y estas en fase de riesgo inminente");
+            texto= "Riesgo inminente";
+        }
+		if(total>=61){
+			alert("Total de puntos es: "+total+" y estas en fase de consumación");
+            texto= "Riesgo consumación";
+        }
+
+
+        $(document).ready(function() { //hacer llamada a la funcion
+    
+            //llamada a funciones sumarizada todo este codigo representa todo lo que contiene el pdf cada punto/rgb/posicion codificado
+            
+            
+            var doc = new jsPDF(); //constructor que prepara un nuevo objeto nombrado como doc en memoria ese objeto se apropia de todas las funciones pdf
+            var pdfnames;
+			var pdf;
+            
+			pdfname= "Usuario: "+ name;
+            pdf= "Tu total de puntos es de "+ total+ " y estas en fase de " + texto;
+
+            //todo esto está en memoria
+            doc.setFontSize(20); //en ppi puntos por pulgada 
+            doc.text(0, 20, pdfname);
+			doc.text(0, 50, pdf);
+            //doc.addImage(imgData, 'JPEG', 10, 40, 180, 180); 
+            //agregar la imagen encriptada x1, y1, x2, y2
+            
+            
+            //todo lo que está en memoria se monta en una cadena
+            var string = doc.output('datauristring');  //
+            
+            //al iframe del dom cambiarle el atributo  src a string que es donde se guardo todo lo que está en memoria 
+            $('iframe').attr('src', string);
+            
+            });
+
+        return false;
+	    }
+        
+        
+		
+    </script>
+</head>
+<body>
+	<h2>TEST PARA MEDIR EL NIVEL DE RIESGO DE VIOLENCIA PARA MUJERES EN EL ESTADO DE SLP</h2>
+  <p>INSTRUCCIONES: Lee cuidadosamente y responde una sola opción</p>
+
+  <form id="formname" onsubmit="return obtname();"> <!-- onsubmit es el evento cuando se oprime el boton submit -->
+	<h3>Ingresa tu nombre</h3>
+	<input id="name" name="name" type="text">
+	<p><input type="submit" value="Aceptar"/></p>
+</form>
+
+
+<form id="myform" onsubmit="return resultados();">
+	<br>
+	<br>
+
+	1.- Dentro de tu núcleo familiar (padre, madre, hermanos) en algún momento vivieron violencia
+(amenazas, gritos, golpes)?
+<input id="p1" name="p1" type="radio"  value=3> SI
+<input id="p1" name="p1" type="radio"  value=2> A VECES
+<input id="p1" name="p1" type="radio"  value=1> RARA VEZ
+<input id="p1" name="p1" type="radio"  value=0 checked> NO
+<br>
+2.-¿Tu pareja te cela?
+SI<input id="p2" name="p2" type="radio" value=3>
+A VECES<input id="p2"  name="p2" type="radio" value=2>
+RARA VEZ<input id="p2"  name="p2" type="radio" value=1>
+NO<input id="p2"  name="p2" type="radio" value=0 checked>
+<br>
+3.-¿Has sufrido descalificaciones o humillaciones en público por parte de tu pareja?
+SI<input id="p3"  name="p3" type="radio" value=3>
+A VECES<input id="p3"  name="p3" type="radio" value=2>
+RARA VEZ<input id="p3"  name="p3" type="radio" value=1>
+NO<input id="p3"  name="p3" type="radio" value=0 checked>
+<br>
+4.-¿Tu pareja te responsabiliza de los problemas que tienen?
+SI<input id="p4"  name="p4" type="radio" value=3>
+A VECES<input id="p4"  name="p4" type="radio" value=2>
+RARA VEZ<input id="p4"  name="p4" type="radio" value=1>
+NO<input id="p4"  name="p4" type="radio" value=0 checked>
+<br>
+5.-¿Te controla, todo el tiempo o quiere saber dónde estás?
+SI<input id="p5"  name="p5" type="radio" value=3>
+A VECES<input id="p5"  name="p5" type="radio" value=2>
+RARA VEZ<input id="p5"  name="p5" type="radio" value=1>
+NO<input id="p5"  name="p5" type="radio" value=0 checked>
+<br>
+6.-¿Te chantajea, manipula o soborna para hacer cosas?
+SI<input id="p6"  name="p6" type="radio" value=3>
+A VECES<input id="p6"  name="p6" type="radio" value=2>
+RARA VEZ<input id="p6"  name="p6" type="radio" value=1>
+NO<input id="p6"  name="p6" type="radio" value=0 checked>
+<br>
+7.-¿Te limita o prohibe hacer cosas?
+SI<input id="p7"  name="p7" type="radio" value=3>
+A VECES<input id="p7"  name="p7" type="radio" value=2>
+RARA VEZ<input id="p7"  name="p7" type="radio" value=1>
+NO<input id="p7"  name="p7" type="radio" value=0 checked>
+<br>
+8.-¿Te controla o limita el recurso económico, o amenaza con quitártelo a ti y tus hijos?
+SI<input id="p8"  name="p8" type="radio" value=3>
+A VECES<input id="p8"  name="p8" type="radio" value=2>
+RARA VEZ<input id="p8"  name="p8" type="radio" value=1>
+NO<input id="p8"  name="p8" type="radio" value=0 checked>
+<br>
+9.-Durante las discusiones, ¿tu pareja se pone violenta y ha destruido objetos?
+SI<input id="p9"  name="p9" type="radio" value=3>
+A VECES<input id="p9"  name="p9" type="radio" value=2>
+RARA VEZ<input id="p9"  name="p9" type="radio" value=1>
+NO<input id="p9"  name="p9" type="radio" value=0 checked>
+<br>10.-¿Tu pareja te obliga a tener relaciones sexuales sin tu consentimiento o sin protección?
+SI<input id="p10"  name="p10" type="radio" value=3>
+A VECES<input id="p10"  name="p10" type="radio" value=2>
+RARA VEZ<input id="p10"  name="p10" type="radio" value=1>
+NO<input id="p10"  name="p10" type="radio" value=0 checked>
+<br>11.-¿Tu pareja te acaricia violentamente?
+SI<input id="p11"  name="p11" type="radio" value=3>
+A VECES<input id="p11"  name="p11" type="radio" value=2>
+RARA VEZ<input id="p11"   name="p11" type="radio" value=1>
+NO<input id="p11"  name="p11" type="radio" value=0 checked>
+<br>12.-¿Cuando discutes con tu pareja, te hace agresiones físicas (empujones, patadas, puñetazos, jalones, te azota) con alguna arma (blanca o fuego) que te dejan marcas?
+SI<input id="p12"  name="p12" type="radio" value=3>
+A VECES<input id="p12"  name="p12" type="radio" value=2>
+RARA VEZ<input id="p12"  name="p12" type="radio" value=1>
+NO<input id="p12"  name="p12" type="radio" value=0 checked>
+<br>13.-¿Has recibido atención médica y/o psicológica por la violencia ejercida por tu pareja?
+SI<input id="p13"  name="p13" type="radio" value=3>
+A VECES<input id="p13"  name="p13" type="radio" value=2>
+RARA VEZ<input id="p13"  name="p13" type="radio" value=1>
+NO<input id="p13"  name="p13" type="radio" value=0 checked>
+<br>14.-¿Hab¿as realizado denuncias anteriormente por violencia familiar, acoso laboral y/o sexual o lesiones?
+SI<input id="p14"  name="p14" type="radio" value=3>
+A VECES<input id="p14"  name="p14" type="radio" value=2>
+RARA VEZ<input id="p14"  name="p14" type="radio" value=1>
+NO<input id="p14"  name="p14" type="radio" value=0 checked>
+<br>15.-¿Debido a la violencia decidiste separarte o terminar la relación?
+SI<input id="p15"  name="p15" type="radio" value=3>
+A VECES<input id="p15"  name="p15" type="radio" value=2>
+RARA VEZ<input id="p15"  name="p15" type="radio" value=1>
+NO<input id="p15"  name="p15" type="radio" value=0 checked>
+<br>16.-¿Seguiste con el proceso de tu denunca o la retiraste?
+SI<input id="p16"  name="p16" type="radio" value=3>
+A VECES<input id="p16"  name="p16" type="radio" value=2>
+RARA VEZ<input id="p16"  name="p16" type="radio" value=1>
+NO<input id="p16"  name="p16" type="radio" value=0 checked>
+<br>17.-¿Por qué motivo retiraste la denuncia?
+AMOR<input id="p17"  name="p17" type="radio" value=3>
+AMENAZAS<input id="p17"  name="p17" type="radio" value=2>
+MIEDO<input id="p17"  name="p17" type="radio" value=1>
+FALTA DE INTERES DE LAS AUTORIDADES<input id="p17" name="p17" type="radio" value=0 checked>
+<br>18.-Los episodios de violencia ¿son más frecuentes y extremos?
+SI<input id="p18"  name="p18" type="radio" value=3>
+A VECES<input id="p18"  name="p18" type="radio" value=2>
+RARA VEZ<input id="p18"  name="p18" type="radio" value=1>
+NO<input id="p18"  name="p18" type="radio" value=0 checked>
+<br>19.-¿Has recibido hostigamiento constante o amenazas de muerte por parte de tu agresor?
+SI<input id="p19"  name="p19" type="radio" value=3>
+A VECES<input id="p19"  name="p19" type="radio" value=2>
+RARA VEZ<input id="p19"  name="p19" type="radio" value=1>
+NO<input id="p19"  name="p19" type="radio" value=0 checked>
+<br>20.-¿Las autoridades emitieron medidas cautelares y de protección para salvaguardar tu integridad (y la de tus hijos)?
+SI<input id="p20"  name="p20" type="radio" value=3>
+A VECES<input id="p20"  name="p20" type="radio" value=2>
+RARA VEZ<input id="p20"  name="p20" type="radio" value=1>
+NO<input id="p20"  name="p20" type="radio" value=0 checked>
+<br>21.-¿Tu agresor ya ha intentado matarte?
+SI<input id="p21"  name="p21" type="radio" value=3>
+A VECES<input id="p21"  name="p21" type="radio" value=2>
+RARA VEZ<input id="p21"  name="p21" type="radio" value=1>
+NO<input id="p21"  name="p21" type="radio" value=0 checked>
+<br><input type="submit" class="btn btn-primary" ></p>
+</form>
+
+<iframe frameborder="0" width="500" height="400"></iframe>
+
+
+</body>
+</html>

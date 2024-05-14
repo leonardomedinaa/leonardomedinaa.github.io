@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>jsPDF</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
+
+	<script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+	<script type="text/javascript" src="jspdf.js"></script>
+
+	<script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+
+	<script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
+
+</head>
+
+<body>
+<iframe frameborder="0" width="500" height="400"></iframe>
+<script>
+$(document).ready(function() {
+//ESTA FUNCION ES UN CONTRUCTOR
+var doc = new jsPDF();
+var dato1=20;
+var dato2=50;
+var suma=dato1+dato2;
+var text="";
+texto="El resultado de sumar "+ dato1 +" y "+ dato2 +" es: "+suma;
+//SE MANEJAN LOS PUNTOS POR PULGADA EN EL TAMAÑO DE LA LETRA DENTRO DEL PDF, TODO LO QUE SE ESCRIBA DENTRO DEL PDF TENDRA EL TAMAÑO DE FUENTE ASIGNADO EN LA FUNCION DE ABAJO
+doc.setFontSize(20);
+//EL TEXTO QUE SE INCLUIRA DENTRO DEL PDF SERA LO QUE SE TIENE ENTRE COMILLAS, O LA VARIABLE DIRECTAMENTE
+doc.text(40, 20, "Leonardo Javier Martínez Medina");
+doc.text(40, 40, "Matricula: 183618");
+doc.text(40, 60, texto);
+//ESTO FUNCIONA COMO POSICIONES DE X1, Y1 Y X2, Y2, LOS VALORES INDICADOS CON NUMEROS
+//doc.addImage(imgData, 'JPEG', 10, 40, 180, 180);
+//ESTA FUNCION NOS PERMITE QUE LO ANTERIORMENTE DEFINIDO AL SER TAN GRANDE, SE MONTE O ASIGNE A LA VARIABLE STRING
+var string = doc.output('datauristring');
+//SRC DE CAMBIARA POR LO QUE SE TENGA DENTRO DE LA CADENA STRING QUE ANTERIORMENTE FUE ASIGNADA
+$('iframe').attr('src', string);
+
+});
+</script>
+
+</body>
+</html>
