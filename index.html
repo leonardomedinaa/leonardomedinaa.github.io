@@ -28,15 +28,15 @@
             padding: 1em;
             margin: 1em;
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: nowrap; /* Mantener los elementos en una sola línea horizontal */
             justify-content: center;
             overflow-x: auto; /* Para permitir el desplazamiento horizontal en pantallas pequeñas */
         }
     
         .parcial {
             border: 3px solid black;
-            margin: 2em;
-            width: 300px; /* Ancho fijo para asegurar que las imágenes se alineen horizontalmente */
+            margin: 50px;
+            width: 500px; /* Tamaño original */
             background-color: white;
             font-size: 1.75em;
             text-align: center;
@@ -82,7 +82,7 @@
             }
     
             .parcial {
-                width: 450px;
+                width: 90%; /* Ajustar ancho en pantallas más pequeñas */
                 font-size: 1.5em;
             }
     
@@ -97,7 +97,7 @@
             }
     
             .parcial {
-                width: 400px;
+                width: 95%; /* Ajustar ancho en pantallas más pequeñas */
                 font-size: 1.25em;
             }
     
@@ -106,6 +106,7 @@
             }
         }
     </style>
+    
     
 </head>
 <body>
