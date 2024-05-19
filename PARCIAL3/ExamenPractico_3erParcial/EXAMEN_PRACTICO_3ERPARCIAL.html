@@ -19,11 +19,11 @@
 
     <script type="text/javascript">
     
-    function generarInputs() {
+    function generaFormulario() {
         let cantnum = parseInt(document.getElementById("cantidad").value);
         if (cantnum <= 0 || isNaN (cantnum))
         {
-            alert('Por favor, ingrese un numero mayor a 0');
+            alert('Ingresa un numero mayor a 0');
             return false;
         }
         // Función interna para crear los input de acuerdo al numero ingresado
@@ -31,7 +31,7 @@
             let input = document.createElement("input");
             input.type = "text";
             input.name = "input" + (index + 1);
-            input.placeholder = "0-25";
+            input.placeholder = "Numero del 0 al 25";
             input.maxLength = 2; // Limita el número de caracteres a 2
             contenedor.appendChild(input);//agrega cada nuevo elemento input al contenedor especificado en el código HTML.
         }
@@ -49,7 +49,7 @@
         for (let i = 0; i < inputs.length; i++) {
             let valor = parseInt(inputs[i].value);//Accede al valor del campo de texto en la posicion i, en este caso del arreglo inputs.
             if (valor < 0 || valor > 25 || isNaN(valor)) {
-                alert('Por favor, ingrese valores válidos entre 0 y 25.');
+                alert('Ingresa un numero entre 0 y 25');
                 return false;
             }
             let letra = message[valor];// Obtenemos la letra correspondiente al indice del arreglo, porque declaramos que el numero ingresado en el input represetnta la posicion del caracter en el arreglo.
@@ -58,7 +58,7 @@
 
         $(document).ready(function() {
             var doc = new jsPDF();
-            var texto = "Su mensaje decodificado es: " + mensajeDecodificado;
+            var texto = "El mensaje decodificado con los numeros ingresados es: " + mensajeDecodificado;
             doc.setFontSize(12);
             doc.text(30, 50, texto);
             var string = doc.output('datauristring');
@@ -80,7 +80,7 @@
             font-family: 'Comic Sans', cursive;
         }
         #contenedor{
-            text-align: center;
+            text-align: left;
             font-family: 'Comic Sans', cursive;
         }
     </style>
@@ -90,14 +90,16 @@
         <h1>Los rusos</h1>
         <p><span style="font-weight: bold;">INSTRUCCIONES</span>
             <ol>
-                <ul>Deberas ingresar un numero y despues darle en enviar</ul>
+                <ul>Deberas ingresar un numero y despues darle en generar</ul>
+                <ul>Se generaran unos recuadros en donde deberas colocar numeros</ul>
                 <ul>El numero que ingreses debera de ser del 0 al 25</ul>
+                <ul>Despues de haber ingresado los numeros, deberas de darle en enviar</ul>
             </ol>
         </p>
         <form id="myform" onsubmit="mensaje()">
             <p>Cuantos numeros quieres</p>
             <input id="cantidad" name="cantidad" type="text" min="1" placeholder="Ingresa una cantidad" style="padding: 3px; width:200px;">
-            <button type="button" onclick="generarInputs()">Generar</button>
+            <button type="button" onclick="generaFormulario()">Generar</button>
             <button type="submit">Enviar</button>
         </form>
         <div id="contenedor"></div>
