@@ -4,77 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio</title>
-   <style>
-
+    <style>
         body {
             font-family: 'Comic Sans', cursive;
-            margin: 5;
-            padding: 5;
-            background-color: white;
-            color: black;
-        }
-
-        .portafolio{
-            text-align: center;
-            font-size: 48px;
-            padding: 20px;
-            margin: 20px;
-            background-color: #84b6f4;
-            color: black;
-            font-weight: bold; /* HACE QUE EL TEXTO DEL CONTENEDOR SE PONGA EN NEGRITAS */
-        }
-
-        .contenedor{
-            background-color: #84b6f4;
-            padding: 10px;
-            margin: 20px;
-            display: flex; /* ALINEA LOS ELEMENTOS QUE CONTIENE EL DIV EN UNA SOLA LINEA */
-            justify-content: center; /* ALINEA LOS ELEMENTOS QUE CONTIENE EL DIV AL CENTRO DE MANERA HORIZONTAL */
-        }
-
-        .parcial{
-            border: 3px solid black;
-            margin: 50px;
-            width: 500px;
-            background-color: white;
-            font-size: 28px;
-            text-align: center;
-        }
-
-        .parcial:hover , .parcial:hover a{ /* ASIGNA PROPIEDADES PARA CUANDO SE PASA ENCIMA EL MOUSE DEL CONTENEDOR 'parcial' Y PARA LAS ETIQUETAS 'a' CONTENIDAS EN EL */
-            transform: scale(1.2); /* CRECE LOS ELEMENTOS CONTENIDOS EN EL CONTENEDOR CON CLASE 'parcial' AL 120%, JUNTO CON LA ETIQUETA 'a' */
-            transition: transform 0.3s; /* LE DA UNA TRANSICION DE 0.3 s A LA ETIQUETA 'transform', ES DECIR, CRECE LOS ELEMENTOS CON UNA TRANSICION DE 0.3 s */
-        }
-
-        .autor{
-            margin: 20px;
-        }
-
-        footer {
+            margin: 5px;
             padding: 5px;
-            background-color: #84b6f4;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 18px;
+            background-color: white;
             color: black;
         }
-
-        div {
-            border-radius: 10px;
+    
+        .portafolio {
+            text-align: center;
+            font-size: 3em;
+            padding: 1em;
+            margin: 1em;
+            background-color: #84b6f4;
+            color: black;
+            font-weight: bold;
         }
-
-        a{
+    
+        .contenedor {
+            background-color: #84b6f4;
+            padding: 1em;
+            margin: 1em;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            overflow-x: auto; /* Para permitir el desplazamiento horizontal en pantallas pequeñas */
+        }
+    
+        .parcial {
+            border: 3px solid black;
+            margin: 2em;
+            width: 300px; /* Ancho fijo para asegurar que las imágenes se alineen horizontalmente */
+            background-color: white;
+            font-size: 1.75em;
+            text-align: center;
+            transition: transform 0.3s;
+            flex-shrink: 0; /* Evita que los elementos se reduzcan */
+        }
+    
+        .parcial:hover, .parcial:hover a {
+            transform: scale(1.2);
+        }
+    
+        .autor {
+            margin: 1em;
+        }
+    
+        footer {
+            padding: 0.5em;
+            background-color: #84b6f4;
+            border-radius: 0.5em;
+            font-weight: bold;
+            font-size: 1.125em;
+            color: black;
+        }
+    
+        div {
+            border-radius: 0.5em;
+        }
+    
+        a {
             text-decoration: none;
             color: black;
             font-weight: bold;
-            font-size: 28px;
+            font-size: 1.75em;
         }
-
-        a:visited{
+    
+        a:visited {
             color: black;
         }
-
+    
+        @media (max-width: 768px) {
+            .portafolio {
+                font-size: 2.5em;
+            }
+    
+            .parcial {
+                width: 250px;
+                font-size: 1.5em;
+            }
+    
+            a {
+                font-size: 1.5em;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            .portafolio {
+                font-size: 2em;
+            }
+    
+            .parcial {
+                width: 200px;
+                font-size: 1.25em;
+            }
+    
+            a {
+                font-size: 1.25em;
+            }
+        }
     </style>
+    
 </head>
 <body>
 
