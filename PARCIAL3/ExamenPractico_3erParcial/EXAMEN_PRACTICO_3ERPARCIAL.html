@@ -27,7 +27,7 @@
 
     <script type="text/javascript">
     
-    function generaFormulario() {
+    function generarInputs() {
         let cantnum = parseInt(document.getElementById("cantidad").value);
         if (cantnum <= 0 || isNaN (cantnum))
         {
@@ -90,7 +90,7 @@
         <form id="myform" onsubmit="mensaje()">
             <p>Cuantos numeros quieres</p>
             <input id="cantidad" name="cantidad" type="text" min="1" placeholder="Ingresa una cantidad" style="padding: 3px; width:200px;">
-            <button type="button" onclick="generaFormulario()">Generar</button>
+            <button type="button" onclick="generarInputs()">Generar</button>
             <button type="submit">Enviar</button>
         </form>
     </body>
