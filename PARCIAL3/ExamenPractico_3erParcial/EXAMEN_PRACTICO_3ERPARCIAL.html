@@ -1,100 +1,145 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
+    <title>Examen Practico Tercer Parcial, Leonardo Javier Martinez Medina</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!--LIBRERIAS DE JAVASCRIPT-->
     <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
-	<script type="text/javascript" src="jspdf.js"></script>
-
-	<script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
-
-	<script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
-	<script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
-	<script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
-    <title>EXAMEN PRACTICO TERCER PARCIAL</title>
+    <script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="jspdf.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
 
     <script type="text/javascript">
-    
-    function generarInputs() {
-        let cantnum = parseInt(document.getElementById("cantidad").value);
-        if (cantnum <= 0 || isNaN (cantnum))
-        {
-            alert('Por favor, ingrese un numero mayor a 0');
-            return false;
-        }
-        // Función interna para crear los input de acuerdo al numero ingresado
-        function crearInput(index) {
-            let input = document.createElement("input");
-            input.type = "text";
-            input.name = "input" + (index + 1);
-            input.placeholder = "0-25";
-            input.maxLength = 2; // Limita el número de caracteres a 2
-            contenedor.appendChild(input);//agrega cada nuevo elemento input al contenedor especificado en el código HTML.
-        }
-        // Genera los inputs
-        for (let i = 0; i < cantnum; i++) {
-            crearInput(i);
-        }
-    }
-
-    function mensaje() {
-        const message = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-        let inputs = document.querySelectorAll('#contenedor input[type="text"]');//selecciona todos los input que tienen el id= Contenedor.
-        let mensajeDecodificado = '';
-
-        for (let i = 0; i < inputs.length; i++) {
-            let valor = parseInt(inputs[i].value);//Accede al valor del campo de texto en la posicion i, en este caso del arreglo inputs.
-            if (valor < 0 || valor > 25 || isNaN(valor)) {
-                alert('Por favor, ingrese valores válidos entre 0 y 25.');
+        function generarInputs() {
+            let cantnum = parseInt(document.getElementById("cantidad").value);
+            if (cantnum <= 0 || isNaN (cantnum))
+            {
+                alert('Por favor, ingrese un numero mayor a 0');
                 return false;
             }
-            let letra = message[valor];// Obtenemos la letra correspondiente al indice del arreglo, porque declaramos que el numero ingresado en el input represetnta la posicion del caracter en el arreglo.
-            mensajeDecodificado += letra;
+            // Función interna para crear los input de acuerdo al numero ingresado
+            function crearInput(index) {
+                let input = document.createElement("input");
+                input.type = "text";
+                input.name = "input" + (index + 1);
+                input.placeholder = "0-25";
+                input.maxLength = 2; // Limita el número de caracteres a 2
+                contenedor.appendChild(input);//agrega cada nuevo elemento input al contenedor especificado en el código HTML.
+            }
+            // Genera los inputs
+            for (let i = 0; i < cantnum; i++) {
+                crearInput(i);
+            }
         }
 
-        $(document).ready(function() {
-            var doc = new jsPDF();
-            var texto = "Su mensaje decodificado es: " + mensajeDecodificado;
-            doc.setFontSize(12);
-            doc.text(30, 50, texto);
-            var string = doc.output('datauristring');
-            var win = window.open();//Abre el PDF en otra ventana
-            win.document.write('<iframe src="' + string + '" style="width:100%; height:100%;" frameborder="0"></iframe>');
-        });
+        function mensaje() {
+            const message = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+            let inputs = document.querySelectorAll('#contenedor input[type="text"]');//selecciona todos los input que tienen el id= Contenedor.
+            let mensajeDecodificado = '';
 
-        return false;
-    }
+            for (let i = 0; i < inputs.length; i++) {
+                let valor = parseInt(inputs[i].value);//Accede al valor del campo de texto en la posicion i, en este caso del arreglo inputs.
+                if (valor < 0 || valor > 25 || isNaN(valor)) {
+                    alert('Por favor, ingrese valores válidos entre 0 y 25.');
+                    return false;
+                }
+                let letra = message[valor];// Obtenemos la letra correspondiente al indice del arreglo, porque declaramos que el numero ingresado en el input represetnta la posicion del caracter en el arreglo.
+                mensajeDecodificado += letra;
+            }
+
+            $(document).ready(function() {
+                var doc = new jsPDF();
+                var texto = "Su mensaje decodificado es: " + mensajeDecodificado;
+                doc.setFontSize(12);
+                doc.text(30, 50, texto);
+                var string = doc.output('datauristring');
+                var win = window.open();//Abre el PDF en otra ventana
+                win.document.write('<iframe src="' + string + '" style="width:100%; height:100%;" frameborder="0"></iframe>');
+            });
+
+            return false;
+        }
     </script>
 
     <style>
-        h1{
-            text-align: center;
-            font-family: Verdana;
-            font-weight: bold;
+        #contenedor {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 10px;
+            background-color: rgb(174, 210, 241);
+            padding: 5px;
+            box-shadow:3px 3px 3px #7b8183;
+            justify-content: center;
         }
         body{
-            font-family: 'Comic Sans', cursive;
+            margin: 0px;
+            padding: 0px;
         }
+        input[type="text"] {
+            width: 50px;
+            margin: 5px;
+        }
+        h1{
+            text-align: center;
+            color: #717e7c;
+            background-image:radial-gradient(#FFF, rgb(176, 213, 235));
+            padding: 5px;
+        }
+        .instruc{
+            margin: 3vh;
+            background-color: rgb(174, 210, 241);
+            padding: 5px;
+            box-shadow:3px 3px 3px #7b8183;
+            text-align: left;
+        }
+      form{
+        background-color: rgb(169, 202, 231);
+        padding: 3vh;
+        margin: 2vh;
+        box-shadow:0px 3px 3px 0px #717e7c;
+      }
+      button{
+        color: #000000;
+        background-color: rgb(225, 209, 240);
+        border-radius: 5px;
+        border-color:rgb(121, 118, 117);
+        font-family:monospace;
+      }
+      button:hover{
+        background-color: rgb(190, 166, 212);
+        color: #ffffff;
+        border:none;
+      }
     </style>
-
 </head>
-    <body>
-        <h1>Los rusos</h1>
-        <p><span style="font-weight: bold;">INSTRUCCIONES</span>
-            <ol>
-                <ul>Deberas ingresar un numero y despues darle en enviar</ul>
-                <ul>El numero que ingreses debera de ser del 0 al 25</ul>
-            </ol>
-        </p>
-        <form id="myform" onsubmit="mensaje()">
-            <p>Cuantos numeros quieres</p>
-            <input id="cantidad" name="cantidad" type="text" min="1" placeholder="Ingresa una cantidad" style="padding: 3px; width:200px;">
-            <button type="button" onclick="generarInputs()">Generar</button>
-            <button type="submit">Enviar</button>
-        </form>
-    </body>
+<body>
+<h1>Los rusos</h1>
+<div class="instruc">
+    <p><span style="font-weight: bold;">INSTRUCCIONES:</span></p>
+    <ol>
+        <li>Deberás ingresar cuántos números quieres.</li>
+        <li>Tal cantidad ingresada anteriormente, permitirá que ingreses esa cantidad de números en recuadros,
+            pero solo números del 0 al 25.
+        </li>
+        <li>Después de ingresar esos números, serán enviados y te mostrará un mensaje decodificado.</li>
+    </ol>
+    </div>
+<form id="myform" onsubmit="mensaje();">
+    <p><span style="font-weight: bold;">¿Cuántos números quieres?</span></p>
+    <input id="cantidad" name="cantidad" type="text" min="1" placeholder="Ingresa una cantidad"
+           style="padding: 3px; width:200px;">
+    <button type="button" onclick="generarInputs()">Generar</button>
+    <button type="submit">Enviar</button>
+</form>
+<div id="contenedor"></div>
+</body>
 </html>
